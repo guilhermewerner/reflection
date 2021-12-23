@@ -18,3 +18,4 @@ members = ["Macros"]
 [dependencies]
 reflection-macros = { path = "Macros" }
 anyhow = "1.0"
+paste = "1.0.6"

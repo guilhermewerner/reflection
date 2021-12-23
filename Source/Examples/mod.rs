@@ -5,18 +5,18 @@ pub struct Foo {
     #[property(visible, editable, category = "Default")]
     pub a: u32,
 
-    #[property(visible, editable, category = "Default")]
+    #[property(visible, editable, readwrite, category = "Default")]
     pub b: Bar,
 
-    #[property(visible, editable, category = "Default")]
+    #[property(visible, readonly, category = "Default")]
     pub c: Vec<u128>,
 
-    #[property(visible, editable, category = "Default")]
+    #[property(hidden)]
     pub d: Vec<Bar>,
 }
 
 impl Foo {
-    #[function(callable, category = "Default")]
+    #[function(callable, multicast, category = "Default")]
     pub fn Func(&mut self) {}
 }
 
@@ -27,6 +27,6 @@ pub struct Bar {
 }
 
 impl Bar {
-    #[function(callable, category = "Default")]
+    #[function(event, server, reliable, category = "Default")]
     pub fn Func(&mut self) {}
 }
