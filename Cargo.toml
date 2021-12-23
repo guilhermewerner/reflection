@@ -1,0 +1,20 @@
+[package]
+name = "reflection"
+version = "0.0.1"
+description = "Reflection"
+repository = "https://github.com/GuilhermeWerner/Reflection"
+license = "MIT"
+edition = "2021"
+publish = false
+
+[lib]
+name = "Reflection"
+crate-type = ["rlib"]
+path = "Source/lib.rs"
+
+[workspace]
+members = ["Macros"]
+
+[dependencies]
+reflection-macros = { path = "Macros" }
+anyhow = "1.0"
