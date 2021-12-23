@@ -5,3 +5,7 @@ use std::collections::HashMap;
 pub struct TypeRegistry {
     types: HashMap<TypeId, ()>,
 }
+
+impl TypeRegistry {
+    pub fn Register<T>(&mut self) {}
+}
