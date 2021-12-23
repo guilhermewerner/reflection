@@ -1,3 +1,5 @@
 use std::any::Any;
 
-pub trait Reflect: Any + Send + Sync + 'static {}
+pub unsafe trait Reflect: Any + Send + Sync + 'static {
+    fn TypeName(&self) -> &'static str;
+}
