@@ -1,8 +1,12 @@
+use crate::Property;
 use std::any::{type_name, TypeId};
+use std::borrow::Cow;
+use std::collections::HashMap;
 
 pub struct Class {
     id: TypeId,
-    name: &'static str,
+    name: Cow<'static, str>,
+    properties: HashMap<Cow<'static, str>, Property>,
 }
 
 impl Class {
@@ -10,6 +14,7 @@ impl Class {
         Self {
             id: TypeId::of::<T>(),
             name: type_name::<T>().into(),
+            properties: HashMap::new(),
         }
     }
 
@@ -17,7 +22,7 @@ impl Class {
         self.id
     }
 
-    pub fn GetName(&self) -> &'static str {
-        self.name
+    pub fn GetName(&self) -> &str {
+        &self.name
     }
 }

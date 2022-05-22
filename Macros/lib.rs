@@ -10,9 +10,12 @@ use syn::{parse_macro_input, DeriveInput, ItemFn};
 pub fn reflect(input: TokenStream) -> TokenStream {
     let class = parse_macro_input!(input as DeriveInput);
     let name = &class.ident;
+    let generics = &class.generics;
+
+    let (impl_generics, ty_generics, where_clause) = generics.split_for_impl();
 
     let expanded = quote! {
-        unsafe impl Reflect for #name {
+        unsafe impl #impl_generics Reflect for #name #ty_generics #where_clause {
             fn TypeName(&self) -> &'static str {
                 std::any::type_name::<Self>()
             }

@@ -1,32 +1,31 @@
-use crate::*;
+#[path = "Array.rs"]
+mod _Array;
+pub use self::_Array::Array;
 
-#[derive(Reflect)]
-pub struct Foo {
-    #[property(visible, editable, category = "Default")]
-    pub a: u32,
+#[path = "BinaryTree.rs"]
+mod _BinaryTree;
+pub use self::_BinaryTree::BinaryTree;
 
-    #[property(visible, editable, readwrite, category = "Default")]
-    pub b: Bar,
+#[path = "BinaryHeap.rs"]
+mod _BinaryHeap;
+pub use self::_BinaryHeap::BinaryHeap;
 
-    #[property(visible, readonly, category = "Default")]
-    pub c: Vec<u128>,
+#[path = "HashMap.rs"]
+mod _HashMap;
+pub use self::_HashMap::HashMap;
 
-    #[property(hidden)]
-    pub d: Vec<Bar>,
-}
+#[path = "HashSet.rs"]
+mod _HashSet;
+pub use self::_HashSet::HashSet;
 
-impl Foo {
-    #[function(callable, multicast, category = "Default")]
-    pub fn Func(&mut self) {}
-}
+#[path = "LinkedList.rs"]
+mod _LinkedList;
+pub use self::_LinkedList::LinkedList;
 
-#[derive(Reflect)]
-pub struct Bar {
-    #[property(visible, editable, category = "Default")]
-    pub value: f32,
-}
+#[path = "Queue.rs"]
+mod _Queue;
+pub use self::_Queue::Queue;
 
-impl Bar {
-    #[function(event, server, reliable, category = "Default")]
-    pub fn Func(&mut self) {}
-}
+#[path = "Stack.rs"]
+mod _Stack;
+pub use self::_Stack::Stack;
